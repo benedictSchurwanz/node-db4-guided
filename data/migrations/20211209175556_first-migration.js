@@ -5,10 +5,12 @@ exports.up = async function(knex) {
     .createTable()
     .createTable()
     .createTable()
-
-};
+}
 
 exports.down = async function(knex) {
-  await knex.schema.
-
-};
+  await knex.schema
+    .dropTableIfExists()
+    .dropTableIfExists()
+    .dropTableIfExists()
+    .dropTableIfExists()
+}
