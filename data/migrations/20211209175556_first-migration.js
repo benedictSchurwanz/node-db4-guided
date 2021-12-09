@@ -3,12 +3,15 @@ exports.up = async function(knex) {
   await knex.schema
     .createTable('zoos', table => {
       table.increments('zoo_id')
+      table.string('zoo_name', 128)
     })
     .createTable('species', table => {
       table.increments('species_id')
+      table.string('species_name', 128)
     })
     .createTable('animals', table => {
       table.increments('animal_id')
+      table.string('animal_name', 128)
     })
     .createTable('zoo_animals', table => {
       table.increments('zoo_animal_id')
