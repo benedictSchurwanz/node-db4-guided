@@ -4,7 +4,7 @@ exports.up = async function (knex) {
     .createTable('zoos', table => {
       table.increments('zoo_id')
       table.string('zoo_name', 128).notNullable()
-      table.string('zoo_address', 256).notNullable().unique()
+      table.string('address', 256).notNullable().unique()
     })
     .createTable('species', table => {
       table.increments('species_id')
