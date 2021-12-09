@@ -19,7 +19,7 @@ exports.up = async function(knex) {
         .references('species_id')
         .inTable('species')
         .onDelete('RESTRICT')
-        .onUpdate('RESTRICT')
+        .onUpdate('RESTRICT') // CHANGE OF PK -- NEVER HAPPENS
     })
     .createTable('zoo_animals', table => {
       table.increments('zoo_animal_id')
