@@ -31,6 +31,7 @@ exports.up = async function (knex) {
         .references('zoo_id')
         .inTable('zoos')
         .onDelete('CASCADE')
+        .onUpdate('CASCADE') // CHANGE OF PK -- NEVER HAPPENS
       table
         .integer('animal_id')
         .unsigned()
@@ -38,6 +39,7 @@ exports.up = async function (knex) {
         .references('animal_id')
         .inTable('animals')
         .onDelete('CASCADE')
+        .onUpdate('CASCADE') // CHANGE OF PK -- NEVER HAPPENS
     })
 }
 
