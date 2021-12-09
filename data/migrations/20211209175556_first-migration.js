@@ -1,7 +1,7 @@
 
 exports.up = async function(knex) {
   await knex.schema
-    .createTable()
+    .createTable('zoos')
     .createTable()
     .createTable()
     .createTable()
@@ -12,5 +12,5 @@ exports.down = async function(knex) {
     .dropTableIfExists()
     .dropTableIfExists()
     .dropTableIfExists()
-    .dropTableIfExists()
+    .dropTableIfExists('zoos')
 }
