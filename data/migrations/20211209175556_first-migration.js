@@ -2,7 +2,7 @@
 exports.up = async function(knex) {
   await knex.schema
     .createTable('zoos')
-    .createTable('animals')
+    .createTable('species')
     .createTable()
     .createTable()
 }
