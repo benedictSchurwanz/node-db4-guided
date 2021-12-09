@@ -1,5 +1,5 @@
 
-exports.up = async function(knex) {
+exports.up = async function (knex) {
   await knex.schema
     .createTable('zoos', table => {
       table.increments('zoo_id')
@@ -24,10 +24,24 @@ exports.up = async function(knex) {
     .createTable('zoo_animals', table => {
       table.increments('zoo_animal_id')
       // HERE GO 2 FOREIGN KEYS -- ZOO ANIMAL
+      table
+        .integer('zoo_id')
+        .unsigned()
+        .notNullable()
+        .references('zoo_id')
+        .inTable('zoos')
+        .onDelete('RESTRICT')
+      table
+        .integer('animal_id')
+        .unsigned()
+        .notNullable()
+        .references('animal_id')
+        .inTable('animals')
+        .onDelete('RESTRICT')
     })
 }
 
-exports.down = async function(knex) {
+exports.down = async function (knex) {
   await knex.schema
     .dropTableIfExists('zoo_animals')
     .dropTableIfExists('animals')
