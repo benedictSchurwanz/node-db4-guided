@@ -3,6 +3,7 @@ const helpers = require('./model');
 
 const router = express.Router();
 
+// get all specieses
 router.get('/species', (req, res, next) => {
   helpers.getSpecies()
     .then(species => {
@@ -11,6 +12,7 @@ router.get('/species', (req, res, next) => {
     .catch(next); // our custom err handling middleware in server.js will trap this
 });
 
+// get all animals
 router.get('/animals', (req, res, next) => {
   helpers.getAnimals() //INCLUDING SPECIES NAME
     .then(animals => {
@@ -19,6 +21,7 @@ router.get('/animals', (req, res, next) => {
     .catch(next);
 });
 
+// 
 router.post('/animals', (req, res, next) => { // it would be nice to have animal validation midd
   helpers.createAnimal(req.body)
     .then(animal => {
